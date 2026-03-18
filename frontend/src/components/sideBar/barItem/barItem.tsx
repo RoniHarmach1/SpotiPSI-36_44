@@ -17,4 +17,4 @@ const BarItem = ({ name, icon,  }: Props) => {
     );
 }
 
-export default BarItem;
+export default BarItem; 
