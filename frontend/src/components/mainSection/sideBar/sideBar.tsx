@@ -1,12 +1,56 @@
-import useStyles from "./sideBarStyles";
+import BarItem from './barItem/barItem';
+import useStyles from './sideBarStyles';
+import HomeIcon from '@mui/icons-material/Home';
+import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import type { page } from '../../../App';
 
-const Sidebar: React.FC = () => {
-  const { classes } = useStyles();
 
-  return (
-    <div className={classes.sidebar}>
-    </div>
-  );
-};
+const barItemsArr = [
+    {
+        id: 1,
+        name: 'כל השירים',
+        icon: <HomeIcon sx={{ color: 'white' }}/>,
+    },
+    {
+        id: 2,
+        name: 'פלייליסטים',
+        icon: <LibraryMusicIcon sx={{ color: 'white' }}/>,
+    },
+    {
+        id: 3,
+        name: 'מועדפים',
+        icon: <FavoriteIcon sx={{ color: 'white' }}/>,
+    }
+];
 
-export default Sidebar;
+interface Props {
+    updateCurrentPageFunc: (newPage: page) => void;
+}
+
+const SideBar = ({ updateCurrentPageFunc }: Props) => {
+    const { classes } = useStyles();
+
+    const clickBarItem = (id: number) => {
+        if (id === 1) {
+            updateCurrentPageFunc('songs');
+        }
+        else if (id === 2) {
+            updateCurrentPageFunc('playlists');
+        }
+        else {
+            updateCurrentPageFunc('favorites');
+        }
+    }
+
+
+    return (
+        <div className={classes.sideBar}>
+            {barItemsArr.map((item) => {
+                return <div onClick={() => clickBarItem(item.id)}><BarItem key={item.id} name={item.name} icon={item.icon}/></div>
+            })}
+        </div>
+    );
+}
+
+export default SideBar;
