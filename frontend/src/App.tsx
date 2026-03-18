@@ -1,6 +1,5 @@
 import { useState } from "react";
 import useStyles from "./AppStyles"
-import SideBar from "./components/sideBar/sideBar";
 
 import React from "react";
 import Header from "./components/header/header";
@@ -8,13 +7,10 @@ import Player from "./components/player/player";
 import MainSection from "./components/mainSection/mainSection";
 import SongsFetch from "./components/serverFetch/songsFetch"; 
 import type { Song } from "./components/types/types"; 
-
+import SideBar from "./components/mainSection/sideBar/sideBar";
 
 
 export type page = 'songs' | 'favorites' | 'playlists'
-
-function App() {
-
 
 const App: React.FC = () => {
   const { classes } = useStyles();

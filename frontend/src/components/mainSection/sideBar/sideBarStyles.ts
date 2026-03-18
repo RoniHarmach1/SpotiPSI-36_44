@@ -1,12 +1,15 @@
-import { tss } from "tss-react/mui";
+import { makeStyles } from 'tss-react/mui';
 
-export default tss.create(() => ({
-  sidebar: {
-    width: "200px",
-    backgroundColor: "#181818",
-    padding: "20px",
-    display: "flex",
-    flexDirection: "column",
-    gap: "15px",
-  },
+const useStyles = makeStyles()(() => ({
+    sideBar: {
+        display: 'flex',
+        flexDirection: 'column',
+        width: '15%',
+        height: '100%',
+        backgroundColor: 'black',
+        borderLeft: '4px solid #1E1E1E'
+    }
 }));
+
+export default useStyles;
+
