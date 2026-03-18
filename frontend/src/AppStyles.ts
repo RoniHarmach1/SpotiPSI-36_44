@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { tss } from "tss-react/mui";
 
 export default tss.create(() => ({
@@ -11,3 +12,17 @@ export default tss.create(() => ({
     color: "white",
   },
 }));
+=======
+import { makeStyles } from 'tss-react/mui';
+
+
+const useStyles = makeStyles()(() => ({
+    app: {
+        height: '100vh',
+        width: '100vw',
+        direction: 'rtl'
+    }
+}));
+
+export default useStyles;
+>>>>>>> 87318d8 (Added SideBar Part1 Q3)
