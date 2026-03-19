@@ -5,9 +5,11 @@ const useStyles = makeStyles()(() => ({
     display: "flex",
     flexDirection: "row",
     height: "86%",
+    width: '100%',
     boxSizing: "border-box",      
-
   },
+
+  
 }));
 
 export default useStyles;

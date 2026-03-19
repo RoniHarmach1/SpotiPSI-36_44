@@ -1,12 +1,13 @@
 import type React from 'react';
 import useStyles from './barItemStyles';
+import type { page } from '../../mainSection';
 
 interface Props {
     name: string,
     icon: React.ReactNode, 
 }
 
-const BarItem = ({ name, icon,  }: Props) => {
+const BarItem = ({ name, icon }: Props) => {
     const { classes } = useStyles();
 
     return (

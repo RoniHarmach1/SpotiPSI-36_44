@@ -9,24 +9,23 @@ export type page = 'songs' | 'favorites' | 'playlists'
 
 
 interface Props {
-  songs: Song[];
+  songs: Song[],
 }
 
 const MainSection: React.FC<Props> = ({ songs }) => {
   const { classes } = useStyles();
+  const [currentPage, setCurrentPage] = useState<page>('songs')
 
 
   const updateCurrentPage = (newPage: page) => {
     setCurrentPage(newPage)
   }
 
-
-  const [currentPage, setCurrentPage] = useState<page>('songs')
   
   return (
     <div className={classes.container}>
-      <SideBar updateCurrentPageFunc={updateCurrentPage} />
-      <PageContent songs={songs} />
+      <SideBar updateCurrentPageFunc={updateCurrentPage} currentPage={currentPage}/>
+      <PageContent songs={songs} currentPage={currentPage}/>
     </div>
   );
 };

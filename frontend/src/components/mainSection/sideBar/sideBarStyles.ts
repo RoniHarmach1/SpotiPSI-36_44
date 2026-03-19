@@ -8,7 +8,8 @@ const useStyles = makeStyles()(() => ({
         height: '100%',
         backgroundColor: 'black',
         borderLeft: '4px solid #1E1E1E'
-    }
+    },
+
 }));
 
 export default useStyles;
