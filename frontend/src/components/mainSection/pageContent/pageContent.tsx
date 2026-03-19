@@ -1,13 +1,16 @@
 import type { Song } from "../../types/types";
 import useStyles from './pageContentStyles';
 import AllSongsPage from "./songsTable/songsTable";
+import type {page} from "../../types/types"
 
 interface Props {
-  songs: Song[],
-  currentPage: string,
+  songs: Song[];
+  favoriteSongsId: number[];
+  currentPage: page;
 }
 
-const PageContent: React.FC<Props> = ({ songs, currentPage }) => {
+
+const PageContent: React.FC<Props> = ({  songs, favoriteSongsId, currentPage }: Props) => {
   const { classes } = useStyles();
   
   const returnCurrentPageHebrew = () => {
@@ -22,8 +25,6 @@ const PageContent: React.FC<Props> = ({ songs, currentPage }) => {
     }
   }
 
-  
-
   return (
     <div className={classes.pageContent}>
       <div className={classes.pageTitleContainer}>
@@ -33,6 +34,7 @@ const PageContent: React.FC<Props> = ({ songs, currentPage }) => {
       </div>
       
       <AllSongsPage songs={songs} />
+
     </div>
   );
 };
