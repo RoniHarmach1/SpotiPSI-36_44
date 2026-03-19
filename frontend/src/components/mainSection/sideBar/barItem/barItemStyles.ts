@@ -19,7 +19,8 @@ const useStyles = makeStyles()(() => ({
 
     itemName: {
         marginRight: '10%'
-    }
+    },
+
 }));
 
 export default useStyles;
