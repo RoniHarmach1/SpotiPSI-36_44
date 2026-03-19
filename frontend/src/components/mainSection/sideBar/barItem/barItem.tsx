@@ -1,6 +1,6 @@
 import type React from 'react';
 import useStyles from './barItemStyles';
-import type { page } from '../../mainSection';
+import type { page } from '../../../types/types';
 
 interface Props {
     name: string,

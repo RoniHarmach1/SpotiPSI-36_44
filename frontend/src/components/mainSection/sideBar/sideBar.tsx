@@ -3,7 +3,8 @@ import useStyles from './sideBarStyles';
 import HomeIcon from '@mui/icons-material/Home';
 import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import type { page } from '../../mainSection/mainSection';
+import type { page } from "../../types/types";
+import React from "react";
 import type { ReactNode } from 'react';
 
 interface barItem {
@@ -41,7 +42,7 @@ interface Props {
 }
 
 
-const SideBar = ({ updateCurrentPageFunc , currentPage }: Props) => {
+const SideBar: React.FC<Props> =  ({ updateCurrentPageFunc , currentPage }: Props) => {
     const { classes } = useStyles();
 
     

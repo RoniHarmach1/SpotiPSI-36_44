@@ -1,21 +1,24 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import type { Song } from "../types/types";
+import type { Song, page} from "../types/types";
+import {basicUrl} from "../types/types"
 
 interface SongsFetchProps {
+    page: page;
     onSongsLoaded: (songs: Song[]) => void;
 }
 
 
 
-const SongsFetch = ({ onSongsLoaded }: SongsFetchProps) => {
+const SongsFetch = ({ page, onSongsLoaded }: SongsFetchProps) => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string>();
 
     const fetchSongs = async () => {
         setIsLoading(true);
+        console.log(`Fetch check : current page: ${page}`);
         try {
-            const response = await fetch("http://127.0.0.1:5001/api/songs");            
+            const response = await fetch(`${basicUrl}/api/${page}`);            
             const data = await response.json();
             
             onSongsLoaded(data); 
@@ -31,7 +34,7 @@ const SongsFetch = ({ onSongsLoaded }: SongsFetchProps) => {
 
     useEffect(() => {
         fetchSongs();
-    }, []);
+    }, [page]);
 
     return (
         <div >

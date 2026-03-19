@@ -1,31 +1,30 @@
-import type { Song } from "../types/types";
+import type { Song, page } from "../types/types";
 import PageContent from "./pageContent/pageContent";
 import SideBar from "./sideBar/sideBar"
 import React from "react";
 import { useState } from "react";
 import useStyles from "./mainSectionStyles";
 
-export type page = 'songs' | 'favorites' | 'playlists'
-
-
 interface Props {
   songs: Song[],
+  favoriteSongsId: number[],
+  currentPage: page,
+  setCorrentPageFunc: (prevPge: page) => void,
 }
 
-const MainSection: React.FC<Props> = ({ songs }) => {
+
+const MainSection: React.FC<Props> = ({ songs, favoriteSongsId, currentPage, setCorrentPageFunc }: Props) => {
   const { classes } = useStyles();
-  const [currentPage, setCurrentPage] = useState<page>('songs')
 
 
   const updateCurrentPage = (newPage: page) => {
-    setCurrentPage(newPage)
+    setCorrentPageFunc(newPage);
   }
 
-  
   return (
     <div className={classes.container}>
       <SideBar updateCurrentPageFunc={updateCurrentPage} currentPage={currentPage}/>
-      <PageContent songs={songs} currentPage={currentPage}/>
+      <PageContent songs ={songs} currentPage={currentPage} favoriteSongsId={favoriteSongsId}/>
     </div>
   );
 };
