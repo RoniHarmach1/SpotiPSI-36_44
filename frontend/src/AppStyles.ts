@@ -9,8 +9,10 @@ const useStyles = makeStyles()(() => ({
         height: '100vh',
         width: '100vw',
         direction: 'rtl',
-        backgroundColor: "#121212",
+        backgroundColor: "black",
         color: "white",
+        boxSizing: "border-box",      
+
     }
 }));
 

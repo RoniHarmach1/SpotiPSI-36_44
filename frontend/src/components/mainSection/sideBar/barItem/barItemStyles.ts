@@ -7,6 +7,7 @@ const useStyles = makeStyles()(() => ({
         alignItems: 'center',
         width: '100%',
         color: 'white',
+        backgroundColor: "black",
         ":hover": {
             backgroundColor: '#301934'
         }

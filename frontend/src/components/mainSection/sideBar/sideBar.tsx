@@ -3,7 +3,9 @@ import useStyles from './sideBarStyles';
 import HomeIcon from '@mui/icons-material/Home';
 import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import type { page } from '../../../App';
+import type { page } from '../../mainSection/mainSection';
+
+
 
 
 const barItemsArr = [
@@ -28,6 +30,9 @@ interface Props {
     updateCurrentPageFunc: (newPage: page) => void;
 }
 
+
+
+
 const SideBar = ({ updateCurrentPageFunc }: Props) => {
     const { classes } = useStyles();
 
@@ -43,14 +48,19 @@ const SideBar = ({ updateCurrentPageFunc }: Props) => {
         }
     }
 
-
     return (
         <div className={classes.sideBar}>
-            {barItemsArr.map((item) => {
-                return <div onClick={() => clickBarItem(item.id)}><BarItem key={item.id} name={item.name} icon={item.icon}/></div>
-            })}
+            <div>
+                {barItemsArr.map((item) => (
+                <div key={item.id} onClick={() => clickBarItem(item.id)}>
+                    <BarItem name={item.name} icon={item.icon} />
+                </div>
+                ))}
+            </div>
         </div>
     );
+
+
 }
 
 export default SideBar;

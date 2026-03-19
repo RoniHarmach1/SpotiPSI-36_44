@@ -1,9 +1,14 @@
-import { tss } from "tss-react/mui";
+import { makeStyles } from 'tss-react/mui';
 
-export default tss.create(() => ({
+const useStyles = makeStyles()(() => ({
   container: {
     display: "flex",
-    flex: 1,
+    flexDirection: "row",
     height: "86%",
+    boxSizing: "border-box",      
+
   },
 }));
+
+export default useStyles;
+
